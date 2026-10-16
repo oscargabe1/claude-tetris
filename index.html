@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tetris</title>
+  <script>
+    try { document.documentElement.dataset.theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark'; } catch (e) {}
+  </script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="wrapper">
     <h1 class="title">TETRIS</h1>
+    <button id="theme-btn" type="button" title="Cambiar tema (T)">Modo claro</button>
 
     <div class="game-container">
       <canvas id="board" width="300" height="600"></canvas>
@@ -40,6 +44,7 @@
             <li><kbd>↓</kbd> bajar</li>
             <li><kbd>Space</kbd> caída</li>
             <li><kbd>P</kbd> pausa</li>
+            <li><kbd>T</kbd> tema</li>
           </ul>
         </div>
       </aside>
