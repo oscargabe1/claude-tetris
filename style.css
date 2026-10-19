@@ -219,3 +219,52 @@ kbd {
 #restart-btn:hover {
   background: var(--accent-hover);
 }
+
+/* ---- Skins ---- */
+.skin-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#skin-select {
+  background: var(--canvas-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#skin-select:hover {
+  border-color: var(--accent);
+}
+
+/* Neon: canvas negro incluso en tema claro */
+[data-skin="neon"] #board,
+[data-skin="neon"] #next-canvas {
+  background: #000;
+  border-color: #1f2a44;
+}
+
+[data-skin="neon"] #board {
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+}
+
+/* Pastel: fondo suave */
+[data-skin="pastel"] #board,
+[data-skin="pastel"] #next-canvas {
+  background: #fdf6ff;
+  border-color: #e3d4ee;
+}
+
+[data-theme="dark"][data-skin="pastel"] #board,
+[data-theme="dark"][data-skin="pastel"] #next-canvas {
+  background: #2a2635;
+  border-color: #403a52;
+}

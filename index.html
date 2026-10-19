@@ -6,6 +6,7 @@
   <title>Tetris</title>
   <script>
     try { document.documentElement.dataset.theme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark'; } catch (e) {}
+    try { var s = localStorage.getItem('skin'); document.documentElement.dataset.skin = ['retro','neon','pastel','pixel'].indexOf(s) >= 0 ? s : 'retro'; } catch (e) {}
   </script>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -13,6 +14,15 @@
   <div class="wrapper">
     <h1 class="title">TETRIS</h1>
     <button id="theme-btn" type="button" title="Cambiar tema (T)">Modo claro</button>
+    <label id="skin-box" class="skin-box" title="Cambiar skin (S)">
+      <span class="label">SKIN</span>
+      <select id="skin-select">
+        <option value="retro">Retro</option>
+        <option value="neon">Neon</option>
+        <option value="pastel">Pastel</option>
+        <option value="pixel">Pixel art</option>
+      </select>
+    </label>
 
     <div class="game-container">
       <canvas id="board" width="300" height="600"></canvas>
@@ -45,6 +55,7 @@
             <li><kbd>Space</kbd> caída</li>
             <li><kbd>P</kbd> pausa</li>
             <li><kbd>T</kbd> tema</li>
+            <li><kbd>S</kbd> skin</li>
           </ul>
         </div>
       </aside>

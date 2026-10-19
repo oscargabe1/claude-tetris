@@ -25,3 +25,7 @@ Three files: `index.html` (DOM + two canvases), `style.css`, `game.js` (all logi
 
 - Canvas size is hardcoded in `index.html` (`board` 300×600, `next-canvas` 120×120). Changing `COLS`/`ROWS`/`BLOCK` in `game.js` requires updating the canvas `width`/`height` to match (`COLS*BLOCK` × `ROWS*BLOCK`).
 - `drawNext` uses its own block size (`NB = 30`) and centers within a 4×4 grid.
+
+## Skins
+
+`SKINS` en `game.js` (`retro`, `neon`, `pastel`, `pixel`): cada una define `colors`, `colorsLight?`, `grid?` y `drawBlock(context, px, py, size, color, alpha)` (px/py en píxeles). `drawBlock(context,x,y,colorIndex,size,alpha)` resuelve paleta (tema + skin) y delega. `applySkin` setea `<html data-skin>` (CSS cambia el fondo de canvas en neon/pastel), persiste `localStorage('skin')` y redibuja vía `applyTheme`. Tecla `S` cicla skins. Draw functions deben resetear `shadowBlur`/`globalAlpha`.
