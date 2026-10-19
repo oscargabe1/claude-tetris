@@ -83,7 +83,22 @@ body {
   cursor: pointer;
 }
 
-#theme-btn:hover {
+#skin-select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--canvas-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#theme-btn:hover,
+#skin-select:hover {
   border-color: var(--accent);
 }
 
@@ -100,6 +115,24 @@ body {
   background: var(--canvas-bg);
   border-radius: 4px;
   box-shadow: 0 0 40px var(--shadow);
+}
+
+/* ---- Skins: fondo del tablero ---- */
+[data-skin="neon"] #board,
+[data-skin="neon"] #next-canvas {
+  background: #000;
+  border-color: #00f0ff;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.45);
+}
+[data-skin="neon"] { --grid: #14141f; }
+
+[data-theme="dark"][data-skin="pastel"] { --canvas-bg: #23202e; --grid: #2d293a; }
+[data-theme="light"][data-skin="pastel"] { --canvas-bg: #fff8fb; --grid: #f3e6ee; }
+
+[data-skin="pixel"] #board,
+[data-skin="pixel"] #next-canvas {
+  border-radius: 0;
+  image-rendering: pixelated;
 }
 
 /* ---- Panel lateral ---- */
