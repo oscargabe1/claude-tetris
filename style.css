@@ -210,7 +210,9 @@ kbd {
   border-radius: 4px;
 }
 
-.overlay.hidden {
+.overlay.hidden,
+.overlay-box.hidden,
+#pause-controls.hidden {
   display: none;
 }
 
@@ -235,8 +237,8 @@ kbd {
   color: var(--accent);
 }
 
-#restart-btn {
-  margin-top: 8px;
+.menu-btn {
+  min-width: 180px;
   background: var(--accent);
   color: var(--on-accent);
   border: none;
@@ -249,6 +251,64 @@ kbd {
   transition: background 0.15s;
 }
 
-#restart-btn:hover {
+.menu-btn:hover {
   background: var(--accent-hover);
+}
+
+.menu-btn.secondary {
+  background: var(--canvas-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.menu-btn.secondary:hover {
+  background: var(--canvas-bg);
+  border-color: var(--accent);
+}
+
+#pause-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+#pause-controls {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+#pause-controls li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.level-select {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.level-select select {
+  background: var(--canvas-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 13px;
+}
+
+.hint {
+  font-size: 10px;
+  color: var(--label);
 }
