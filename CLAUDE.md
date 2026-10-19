@@ -25,3 +25,4 @@ Three files: `index.html` (DOM + two canvases), `style.css`, `game.js` (all logi
 
 - Canvas size is hardcoded in `index.html` (`board` 300×600, `next-canvas` 120×120). Changing `COLS`/`ROWS`/`BLOCK` in `game.js` requires updating the canvas `width`/`height` to match (`COLS*BLOCK` × `ROWS*BLOCK`).
 - `drawNext` uses its own block size (`NB = 30`) and centers within a 4×4 grid.
+- Records: `localStorage['tetrisRecords']` = `{top:[{name,score,lines,level,date}] (max 5), bestCombo, maxLines}` (`loadRecords`/`saveRecords`/`renderRecords`; names rendered via `textContent`). Combo = consecutive locks clearing lines (`combo`/`maxCombo`, tracked in `lockPiece`). Game does not auto-start: `#start-overlay` calls `init()` (`started` flag); keydown ignores events from `<input>`.

@@ -42,6 +42,7 @@ Es una versión jugable del Tetris clásico con todas las mecánicas que esperar
 - **Sistema de puntuación** clásico de Tetris (100 / 300 / 500 / 800 multiplicado por nivel).
 - **Niveles** que aumentan cada 10 líneas y aceleran la caída.
 - **Pausa** y **Game Over** con opción de reinicio.
+- **Pantalla de inicio** (botón _Jugar_ o `Enter`) con la **tabla de récords local**: Top 5 con nombre (campo de texto al hacer Game Over), mejor combo y líneas máximas, guardados en `localStorage` (`tetrisRecords`). La puntuación nueva se resalta y hay botón para resetear los récords (doble clic de confirmación).
 - **Tema oscuro / claro** (oscuro por defecto), con botón o tecla `T`; la preferencia se guarda en `localStorage`.
 
 ---
@@ -137,6 +138,8 @@ init()
 
    keydown → mover / rotar / soft-drop / hard-drop / pausa
 ```
+
+El juego no arranca solo: `init()` se llama desde la pantalla de inicio. En `endGame()`, `handleGameOverRecords()` actualiza mejor combo / líneas máximas y, si la puntuación entra en el Top 5, pide el nombre.
 
 Cuando una pieza recién generada ya colisiona al aparecer (`spawn`), se dispara `endGame()` y se muestra el overlay de **Game Over**.
 
