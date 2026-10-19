@@ -18,8 +18,8 @@ Three files: `index.html` (DOM + two canvases), `style.css`, `game.js` (all logi
 - Board = `ROWS×COLS` matrix; cell is `0` or color/piece index 1–7, which indexes both `COLORS` and `PIECES` (index 0 is `null` in both).
 - Piece = `{type, shape, x, y}`; `shape` is a square matrix whose cells hold the piece index. Rotation via `rotateCW`; `tryRotate` tries x-kicks `[0,-1,1,-2,2]` (no SRS, no floor kicks).
 - Game loop: `requestAnimationFrame` `loop` accumulates dt into `dropAccum`; gravity step or `lockPiece()` when `>= dropInterval`. `lockPiece` → `merge` → `clearLines` → `spawn`. `spawn` calls `endGame()` if the new piece collides. Pause/game over cancel the rAF via `animId`.
-- Scoring: `LINE_SCORES × level`; soft drop +1/cell, hard drop +2/cell. Level = `floor(lines/10)+1`; `dropInterval = max(100, 1000-(level-1)*90)` — duplicated in `clearLines` and `init` (initial 1000).
-- Input: single `keydown` listener (arrows, `X`, Space, `P`). `updateHUD()` is called after every keypress and in scoring paths.
+- Scoring: `LINE_SCORES × level`; soft drop +1/cell, hard drop +2/cell. Level = `startLevel + floor(lines/10)`; `dropInterval = dropIntervalFor(level)` (`max(100, 1000-(level-1)*90)`). `startLevel` is set from the pause menu selector and applied on `init()`.
+- Input: single `keydown` listener (arrows, `X`, Space, `P`/`Esc` pause, `T` theme). Pause shows a menu (`#pause-menu`: resume, restart, controls, start level) inside the shared `#overlay`; game over shows `#gameover-box` instead; game keys are ignored while `paused`. `updateHUD()` is called after every keypress and in scoring paths.
 
 ## Gotchas
 
